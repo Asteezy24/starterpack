@@ -1,14 +1,14 @@
 {
-  "name": "thebackbone",
+  "name": "starterpack",
   "version": "1.0.0",
-  "description": "Node + MongoDB Backend",
+  "description": "NodeJS is cool",
   "private": true,
   "engines": {
     "node": ">=8.0.0"
   },
-  "author": "Alex Stevens",
+  "author": "Alex Stevens <http://www.github.com/asteezy24>",
   "scripts": {
-    "start": "node ./dist/app",
+    "start": "node ./src/app",
     "dev": "PORT=3020 nodemon src/app.js --exec babel-node",
     "build": "rm -rf dist; babel src -d dist",
     "lint": "eslint src/ --fix",
@@ -17,10 +17,11 @@
     "precommit": "lint-staged"
   },
   "dependencies": {
-    "deo": "^0.0.2",
-    "express": "^4.15.3",
+    "Router": "^2.1.0",
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.18.3",
+    "config": "^3.0.0",
+    "deo": "0.0.2",
     "express": "^4.16.4",
     "graphql": "^14.0.2",
     "jwt-simple": "^0.5.5",
@@ -34,15 +35,19 @@
     "babel-core": "^6.26.3",
     "babel-jest": "^23.2.0",
     "babel-preset-node8": "^1.1.2",
-    "eslint": "^5.0.1",
-    "eslint-config-airbnb-base": "^13.0.0",
-    "eslint-config-import": "^0.13.0",
+    "eslint": "^5.9.0",
+    "eslint-config-airbnb-base": "^13.1.0",
+    "eslint-config-google": "^0.11.0",
     "eslint-config-prettier": "^2.9.0",
-    "eslint-plugin-import": "^2.13.0",
+    "eslint-config-standard": "^12.0.0",
+    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-node": "^8.0.0",
+    "eslint-plugin-promise": "^4.0.1",
+    "eslint-plugin-standard": "^4.0.0",
     "husky": "^0.14.3",
     "jest": "^23.2.0",
     "lint-staged": "^4.0.0",
-    "nodemon": "^1.17.5",
+    "nodemon": "^1.18.7",
     "prettier": "^1.13.6",
     "regenerator-runtime": "^0.12.0"
   },
@@ -52,5 +57,11 @@
       "eslint --fix",
       "git add"
     ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm test",
+      "pre-push": "npm test"
+    }
   }
 }

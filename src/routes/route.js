@@ -1,11 +1,9 @@
-import Router from 'express';
-import { doSomething } from '../functions/db';
-
-const router = Router();
+const router = require('express').Router()
+const db = require('../functions/db')
 
 router.get('/', async (req, res) => {
-  const data = await doSomething();
-  res.json({ error: false, data });
-});
+  const data = await db.doSomething()
+  res.json({ error: false, data })
+})
 
-export default router;
+module.exports = router
